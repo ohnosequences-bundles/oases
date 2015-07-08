@@ -16,5 +16,5 @@ libraryDependencies ++= Seq (
 	"ohnosequencesBundles" %% "velvet" % "0.5.0-SNAPSHOT",
 	"ohnosequencesBundles" %% "compressinglibs" % "0.1.0-SNAPSHOT",
 	"ohnosequencesBundles" %% "cdevel" % "0.1.0-SNAPSHOT",
-	"ohnosequences" %% "git" % "0.8.0-SNAPSHOT"
+	"ohnosequencesBundles" %% "git" % "0.1.0-SNAPSHOT"
 )
