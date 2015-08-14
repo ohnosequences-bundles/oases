@@ -1,19 +1,17 @@
 package ohnosequencesBundles.statika
 
 import ohnosequences.statika._, bundles._, instructions._
+import java.io.File
 
-abstract class oases(val velvet: Velvet) extends Bundle(velvet, compressinglibs, cdevel, git) {
+abstract class Oases(val version: String) extends Bundle(compressinglibs, cdevel) {
 
   final def install: Results = {
-    git.clone("git://github.com/dzerbino/oases.git", "./oases/") -&-
-    //Seq("git", "clone", "git://github.com/dzerbino/oases.git", "./oases/") -&-
-    Seq("cd", "./oases/") -&-
-    //TODO check how to access v.?
-    Seq("make", s"'VELVET_DIR=${velvet.folder}'", s"'MAXKMERLENGTH=${velvet.maxKmerLength}'") -&-
-    Seq("ln", "-sf", "oases", "/usr/bin/") ->-
+    Seq("wget", s"http://s3-eu-west-1.amazonaws.com/resources.ohnosequences.com/oases/${version}/oases_${version}.tar.gz") ->-
+    Seq("tar", "-xvf", s"oases_${version}.tar.gz") ->- {
+      val oasesDir: String = new File("oases").getAbsolutePath.toString
+      Seq("make", "-C", oasesDir)  -&-
+      Seq("ln", "-sf", s"${oasesDir}/oases", "/usr/bin/")
+    } ->-
     success(s"${bundleName} is installed")
   }
 }
-
-case object defaultOases extends oases(velvet = DefaultVelvet)
-
