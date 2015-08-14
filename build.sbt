@@ -1,7 +1,7 @@
 Nice.scalaProject
 
 name := "oases"
-organization := "ohnosequencesBundles"
+organization := "ohnosequences-bundles"
 description := "A bundle for oases tool"
 
 publishBucketSuffix := "era7.com"
@@ -12,9 +12,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq (
-	"ohnosequences" %% "statika" % "2.0.0-SNAPSHOT",
-	"ohnosequencesBundles" %% "velvet" % "0.5.0-SNAPSHOT",
-	"ohnosequencesBundles" %% "compressinglibs" % "0.1.0-SNAPSHOT",
-	"ohnosequencesBundles" %% "cdevel" % "0.1.0-SNAPSHOT",
-	"ohnosequencesBundles" %% "git" % "0.1.0-SNAPSHOT"
+	"ohnosequences"          %% "statika"           % "2.0.0-SNAPSHOT",
+	"ohnosequences-bundles"  %% "compressinglibs"   % "0.1.0",
+	"ohnosequences-bundles"  %% "cdevel"            % "0.1.0"
 )
