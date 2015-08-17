@@ -1,0 +1,1 @@
+First release of Oases bundle. The install method downloads the tar file from S3, this tar file has its own Velvet so this bundle does not depend on `Velvet` bundle
